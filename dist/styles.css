@@ -16,8 +16,10 @@ li {
   list-style: none;
 }
 
+/* HEADER */
+
 .main-header {
-  height: 4rem;
+  height: 50px;
   background-color: rgb(221, 75, 75);
   color: white;
   display: flex;
@@ -35,4 +37,22 @@ li {
 
 .top-nav-ul li {
   padding: 1rem 0;
+}
+
+/* HEADER END */
+
+/* MAIN */
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.left-side-nav {
+  background-color: rgb(85, 81, 81);
+  height: calc(100vh - 50px);
+}
+
+.main-container {
+  background-color: rgb(202, 195, 195);
 }
