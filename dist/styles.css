@@ -24,19 +24,20 @@ li {
   color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.top-nav-ul {
+.top-nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 4rem;
-  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
-.top-nav-ul li {
-  padding: 1rem 0;
+.add-new-btn {
+  background-color: transparent;
+  border: none;
 }
 
 /* HEADER END */
@@ -49,10 +50,10 @@ li {
 }
 
 .left-side-nav {
-  background-color: rgb(85, 81, 81);
+  background-color: rgb(213, 210, 210);
   height: calc(100vh - 50px);
+  padding: 2rem;
 }
 
 .main-container {
-  background-color: rgb(202, 195, 195);
 }
