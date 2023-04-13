@@ -13,7 +13,7 @@
     <header class="main-header" id="main-header">
       <div class="searchbar"></div>
       <nav class="top-nav">
-        <button class="add-new-btn" id="add-new-btn" data-toggle="modal">
+        <button class="add-new-btn" id="add-new-btn" >
           <svg color="white" width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 18V16H8V14H10V12H12V14H14V16H12V18H10Z" fill="currentColor" />
             <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="currentColor" />
@@ -43,7 +43,7 @@
         <h1>New Project</h1>
       </div>
 
-      <div class="popup-form" id="popup-form" data-toggle="modal" style="display:block">
+      <div class="popup-form" id="popup-form" data-toggle="modal" style="display:none">
         <h2 class="form-title">New Task</h2>
         <form id="task-form" class="task-form">
           <div class="form-left-col">
@@ -83,8 +83,8 @@
             <br>
           </div>
         </form>
-        <div class="form-btns">
-          <button>Close</button>
+        <div class="form-btns" id="form-btns">
+          <button id="close-form">Close</button>
           <button>Add</button>
         </div>
       </div>

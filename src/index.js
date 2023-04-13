@@ -2,11 +2,20 @@ import { compareAsc, format } from "date-fns";
 
 const domHandler = (() => {
   const openTheForm = () => {
-    document.getElementById("new-btn");
-    document.getElementById("popup-form").style.display = "block";
+    const addNewTask = document.getElementById("add-new-btn");
+    addNewTask.addEventListener("click", () => {
+      document.getElementById("popup-form").style.display = "block";
+    });
   };
 
   const closeTheForm = () => {
-    document.getElementById("popup-form").style.display = "none";
+    const closeForm = document.getElementById("close-form");
+
+    closeForm.addEventListener("click", () => {
+      document.getElementById("popup-form").style.display = "none";
+    });
   };
+
+  openTheForm();
+  closeTheForm();
 })();
