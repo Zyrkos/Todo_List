@@ -38,6 +38,12 @@ li {
 .add-new-btn {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.add-new-btn:hover {
+  background-color: rgba(152, 143, 143, 0.556);
 }
 
 /* HEADER END */
@@ -53,7 +59,20 @@ li {
   background-color: rgb(213, 210, 210);
   height: calc(100vh - 50px);
   padding: 2rem;
+  gap: 2rem;
 }
 
 .main-container {
+}
+
+.task-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.popup-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
