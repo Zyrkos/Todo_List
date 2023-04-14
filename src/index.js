@@ -14,6 +14,12 @@ const domHandler = (() => {
     closeForm.addEventListener("click", () => {
       document.getElementById("popup-form").style.display = "none";
     });
+
+    window.onclick = function (event) {
+      if (event.target.className === "popup-form") {
+        event.target.style.display = "none";
+      }
+    };
   };
 
   openTheForm();
