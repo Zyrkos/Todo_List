@@ -1,6 +1,7 @@
 import { compareAsc, format } from "date-fns";
+import { newTask } from "./modules/tasks";
 
-const domHandler = (() => {
+(() => {
   const openTheForm = () => {
     const addNewTask = document.getElementById("add-new-btn");
     addNewTask.addEventListener("click", () => {
@@ -24,4 +25,5 @@ const domHandler = (() => {
 
   openTheForm();
   closeTheForm();
+  newTask();
 })();

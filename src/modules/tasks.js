@@ -1,3 +1,27 @@
-export function toDoList() {
-    
-}
+export const newTask = () => {
+  const titleInput = document.getElementById("title");
+  const descriptionInput = document.getElementById("description");
+  const dueDateInput = document.getElementById("taskDueDate");
+  const priorityInput = document.getElementById("task-priority");
+  const projectInput = document.getElementById("project-select");
+  const form = document.getElementById("task-form");
+
+  let title, description, dueDate, priority;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    title = titleInput.value;
+    description = descriptionInput.value;
+    dueDate = dueDateInput.value;
+    priority = priorityInput.value;
+
+    console.log(title, description, dueDate, priority);
+  });
+
+  return {
+    getTitle: () => title,
+    getDescription: () => description,
+    getDueDate: () => dueDate,
+    getPriority: () => priority,
+  };
+};
