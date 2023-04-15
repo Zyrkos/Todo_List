@@ -1,7 +1,7 @@
-export const projects = (name) => {
-  let project = [];
+export const projects = (project) => {
+  let project;
 
-  this.name = name;
+  this.project = project;
 
-  return { name };
+  return { project };
 };

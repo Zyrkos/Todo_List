@@ -7,6 +7,8 @@ import { newTask } from "./modules/tasks";
     addNewTask.addEventListener("click", () => {
       document.getElementById("popup-form").style.display = "block";
     });
+
+    const addNewProject = document.getElementById("add-project")
   };
 
   const closeTheForm = () => {

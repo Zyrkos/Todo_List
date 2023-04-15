@@ -3,7 +3,6 @@ export const newTask = () => {
   const descriptionInput = document.getElementById("description");
   const dueDateInput = document.getElementById("taskDueDate");
   const priorityInput = document.getElementById("task-priority");
-  const projectInput = document.getElementById("project-select");
   const form = document.getElementById("task-form");
 
   let title, description, dueDate, priority;
