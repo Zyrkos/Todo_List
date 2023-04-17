@@ -1,5 +1,6 @@
 import { compareAsc, format } from "date-fns";
 import { newTask } from "./modules/tasks";
+import { domHandler } from "./modules/eventshandler";
 
 (() => {
   const openTheForm = () => {
@@ -28,4 +29,7 @@ import { newTask } from "./modules/tasks";
   openTheForm();
   closeTheForm();
   newTask();
+  domHandler();
 })();
+
+

@@ -102,11 +102,8 @@ li {
   display: none;
 }
 
-.collapsible::after {
+.collapsible::before {
   content: "+";
   cursor: pointer;
 }
 
-.collapsible.active::before {
-  content: "-";
-}
