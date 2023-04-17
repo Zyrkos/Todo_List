@@ -1,4 +1,4 @@
-export function domHandler() {
+export function collapsibleTabs() {
   const coll = document.querySelectorAll(".collapsible");
   let i;
 
@@ -13,4 +13,17 @@ export function domHandler() {
       }
     });
   }
+}
+
+
+
+const select = document.getElementById("project-select");
+const list = document.getElementById("projects-tabs");
+const items = list.getElementsByTagName("li");
+
+for (let i = 0; i < items.length; i++) {
+  const option = document.createElement("option");
+  option.value = items[i].textContent;
+  option.text = items[i].textContent;
+  select.appendChild(option);
 }

@@ -1,6 +1,6 @@
 import { compareAsc, format } from "date-fns";
 import { newTask } from "./modules/tasks";
-import { domHandler } from "./modules/eventshandler";
+import { collapsibleTabs } from "./modules/eventshandler";
 
 (() => {
   const openTheForm = () => {
@@ -9,7 +9,7 @@ import { domHandler } from "./modules/eventshandler";
       document.getElementById("popup-form").style.display = "block";
     });
 
-    const addNewProject = document.getElementById("add-project")
+    const addNewProject = document.getElementById("add-project-btn")
   };
 
   const closeTheForm = () => {
@@ -29,7 +29,7 @@ import { domHandler } from "./modules/eventshandler";
   openTheForm();
   closeTheForm();
   newTask();
-  domHandler();
+  collapsibleTabs();
 })();
 
 

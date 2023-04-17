@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,10 +12,25 @@
     <header class="main-header" id="main-header">
       <div class="searchbar"></div>
       <nav class="top-nav">
-        <button class="add-new-btn" id="add-new-btn" >
-          <svg color="white" width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 18V16H8V14H10V12H12V14H14V16H12V18H10Z" fill="currentColor" />
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z" fill="currentColor" />
+        <button class="add-new-btn" id="add-new-btn">
+          <svg
+            color="white"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill=""
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 18V16H8V14H10V12H12V14H14V16H12V18H10Z"
+              fill="currentColor"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M6 2C4.34315 2 3 3.34315 3 5V19C3 20.6569 4.34315 22 6 22H18C19.6569 22 21 20.6569 21 19V9C21 5.13401 17.866 2 14 2H6ZM6 4H13V9H19V19C19 19.5523 18.5523 20 18 20H6C5.44772 20 5 19.5523 5 19V5C5 4.44772 5.44772 4 6 4ZM15 4.10002C16.6113 4.4271 17.9413 5.52906 18.584 7H15V4.10002Z"
+              fill="currentColor"
+            />
           </svg>
         </button>
       </nav>
@@ -32,13 +46,18 @@
               <span>Projects</span>
               <div class="collap-content" id="collap-content">
                 <div class="projects-folder">
-                  <p>Project1</p>
-                  <p>Project2</p>
+                  <ul class="projects-tabs" id="projects-tabs">
+                    <li class="project">Example Project1</li>
+                    <li class="project">Example Project2</li>
+                    <li class="project">Example Project3</li>
+                    <li class="project">Example Project4</li>
+
+                  </ul>
                 </div>
-                <button class="add-project" id="add-project">New Project</button>
-                
+                <button class="add-project-btn" id="add-project-btn">
+                  New Project
+                </button>
               </div>
-              
             </li>
           </ul>
         </nav>
@@ -47,58 +66,77 @@
         <h1>New Project</h1>
       </div>
 
-      <div class="popup-form" id="popup-form" style="display:none">
+      <div class="popup-form" id="popup-form" style="display: none">
         <div class="form-wrapper">
           <h2 class="form-title">New Task</h2>
-        <form id="task-form" class="task-form" data-type="form">
-          <div class="form-left-col">
-            <label for="title" class="form-label">Title: </label>
-            <br>
-            <input type="text" id="title" name="title" required class="form-input" />
-            <span class="invalid-feedback" style="display: none;">Title is required!</span>
-            <br>
-            <label for="description" class="form-label">Description: </label>
-            <br>
-            <textarea type="text" id="description" name="description" required class="form-input">
+          <form id="task-form" class="task-form" data-type="form">
+            <div class="form-left-col">
+              <label for="title" class="form-label">Title: </label>
+              <br />
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                class="form-input"
+              />
+              <span class="invalid-feedback" style="display: none"
+                >Title is required!</span
+              >
+              <br />
+              <label for="description" class="form-label">Description: </label>
+              <br />
+              <textarea
+                type="text"
+                id="description"
+                name="description"
+                required
+                class="form-input"
+              >
+              </textarea>
+              <span class="invalid-feedback" style="display: none"
+                >Description is required!</span
+              >
+            </div>
+            <div class="form-right-col">
+              <label for="date" class="form-label">Due date: </label>
+              <br />
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="taskDueDate"
+                max="2030-01-01T00:00"
+                required
+              />
+              <span class="invalid-feedback" style="display: none"
+                >Due date is required!</span
+              >
+              <br />
+              <label for="task-priority">Priority: </label>
+              <br />
+              <select class="priority-select" id="task-priority" required>
+                <option value="low" selected>Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              <br />
+              <label for="project-select">Project: </label>
+              <br />
+              <select class="project-select" id="project-select" required>
+                <option value="default" selected>Default</option>
+              </select>
 
-            </textarea>
-            <span class="invalid-feedback" style="display: none;">Description is required!</span>
-          </div>
-          <div class="form-right-col">
-            <label for="date" class="form-label">Due date: </label>
-            <br>
-            <input type="datetime-local" class="form-control" id="taskDueDate" max="2030-01-01T00:00" required />
-            <span class="invalid-feedback" style="display: none;">Due date is required!</span>
-            <br>
-            <label for="task-priority">Priority: </label>
-            <br>
-            <select class="priority-select" id="task-priority" required>
-              <option value="low" selected>Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-            <br>
-            <label for="project-select">Project: </label>
-            <br>
-            <select class="project-select" id="project-select" required>
-              <option value="default" selected>Default</option>
-
-            </select>
-
-            <br>
-          </div>
-          <button type="submit" >Add</button>
-        </form>
-        <div class="form-btns" id="form-btns">
-          <button id="close-form">Close</button>
-          
+              <br />
+            </div>
+            <br />
+            <div class="form-btns" id="form-btns">
+              <button id="close-form">Close</button>
+              <button type="submit">Add</button>
+            </div>
+          </form>
         </div>
-        </div>
-        
       </div>
-      
     </main>
     <script src="main.js"></script>
   </body>
-
 </html>

@@ -97,13 +97,25 @@ li {
 
 /*  -------LEFT NAV------------ */
 
-
 .collap-content {
   display: none;
+}
+
+.collapsible {
+  cursor: pointer;
+}
+
+.project {
+  margin-top: 2rem;
+  margin-left: 20px;
+}
+
+.add-project-btn {
+  margin-top: 2rem;
+  margin-left: 20px;
 }
 
 .collapsible::before {
   content: "+";
   cursor: pointer;
 }
-
