@@ -95,6 +95,18 @@ li {
   padding: 4rem;
 }
 
-/*  ------------------- */
+/*  -------LEFT NAV------------ */
 
 
+.collap-content {
+  display: none;
+}
+
+.collapsible::after {
+  content: "+";
+  cursor: pointer;
+}
+
+.collapsible.active::before {
+  content: "-";
+}
