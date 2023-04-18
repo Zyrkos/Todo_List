@@ -1,7 +1,7 @@
 import { compareAsc, format } from "date-fns";
 import { newTask } from "./modules/tasks";
 import { newProject } from "./modules/projects";
-
+ 
 import {
   openTheForm,
   closeTheForm,
@@ -15,3 +15,4 @@ openTheForm();
 projectSelection();
 closeTheForm();
 newProject();
+

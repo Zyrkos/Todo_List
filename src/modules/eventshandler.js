@@ -11,7 +11,6 @@ export function collapsibleTabs() {
   });
 }
 
-
 export function projectSelection() {
   const select = document.getElementById("project-select");
   const list = document.getElementById("projects-tabs");
