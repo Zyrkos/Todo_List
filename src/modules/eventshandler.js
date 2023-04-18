@@ -50,17 +50,12 @@ export function closeTheForm() {
     document.getElementById("project-popup-form").style.display = "none";
   });
 
-  /* window.onclick = function (event) {
-    const popupForm = document.getElementById("popup-form");
-    if (event.target === popupForm || !popupForm.contains(event.target)) {
-      popupForm.style.display = "none";
+  window.onclick = function (event) {
+    if (
+      event.target.className === "project-popup-form" ||
+      event.target.className === "popup-form"
+    ) {
+      event.target.style.display = "none";
     }
-  }; */
+  };
 }
-
-
-/* window.onclick = function (event) {
-  if (event.target.className === "project-popup-form") {
-    event.target.style.display = "none";
-  }
-}; */
