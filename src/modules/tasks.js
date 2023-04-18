@@ -1,4 +1,4 @@
-
+import { createTaskElement } from "./domcreator";
 
 export const newTask = () => {
   const titleInput = document.getElementById("title");
@@ -22,6 +22,16 @@ export const newTask = () => {
 
     form.reset();
     formWindow.style.display = "none";
+
+    const mainContainer = document.getElementById("main-container");
+    const taskElement = createTaskElement(
+      title,
+      description,
+      dueDate,
+      priority,
+      project
+    );
+    mainContainer.appendChild(taskElement);
   });
 
   return {

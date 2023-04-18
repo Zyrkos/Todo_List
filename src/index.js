@@ -1,7 +1,7 @@
 import { compareAsc, format } from "date-fns";
 import { newTask } from "./modules/tasks";
 import { newProject } from "./modules/projects";
-import { addNewTask } from "./domcreator";
+
  
 import {
   openTheForm,
@@ -17,5 +17,5 @@ projectSelection();
 closeTheForm();
 newProject();
 
-addNewTask()
+
 
