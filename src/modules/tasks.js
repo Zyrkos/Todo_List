@@ -1,3 +1,5 @@
+
+
 export const newTask = () => {
   const titleInput = document.getElementById("title");
   const descriptionInput = document.getElementById("description");
@@ -5,6 +7,7 @@ export const newTask = () => {
   const priorityInput = document.getElementById("task-priority");
   const projectInput = document.getElementById("project-select")
   const form = document.getElementById("task-form");
+  const formWindow = document.getElementById("popup-form");
 
   let title, description, dueDate, priority, project;
 
@@ -17,6 +20,7 @@ export const newTask = () => {
     project = projectInput.value;
     console.log(title, description, dueDate, priority, project)
     form.reset();
+    formWindow.style.display = "none";
   });
 
   return {

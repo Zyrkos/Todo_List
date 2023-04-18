@@ -1,6 +1,7 @@
 export function newProject() {
   const nameInput = document.getElementById("project-name");
   const form = document.getElementById("project-form");
+  const formWindow = document. getElementById("project-popup-form")
 
   let name;
 
@@ -9,5 +10,6 @@ export function newProject() {
     name = nameInput.value;
     console.log(name);
     form.reset();
+    formWindow.style.display = "none";
   });
 }

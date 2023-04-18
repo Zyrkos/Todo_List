@@ -119,10 +119,6 @@ input#project-name {
   padding: 5px;
 }
 
-.collap-content {
-  display: none;
-}
-
 .collapsible {
   cursor: pointer;
 }
