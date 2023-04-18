@@ -55,6 +55,9 @@ li {
   grid-template-columns: 1fr 5fr;
 }
 
+
+/*-----LEFT NAV --------*/
+
 .left-side-nav {
   background-color: rgb(213, 210, 210);
   height: calc(100vh - 50px);
@@ -66,8 +69,7 @@ li {
   margin-top: 1rem;
 }
 
-.main-container {
-}
+
 
 .task-form {
   display: flex;
@@ -86,6 +88,19 @@ li {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+
+/* .project-popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+} */
+
 .form-wrapper {
   background-color: white;
   position: absolute;
@@ -95,6 +110,15 @@ li {
   padding: 4rem;
 }
 
+/* .project-form-wrapper {
+  background-color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 2rem;
+}
+ */
 /*  -------LEFT NAV------------ */
 
 .collap-content {

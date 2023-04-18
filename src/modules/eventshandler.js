@@ -15,15 +15,42 @@ export function collapsibleTabs() {
   }
 }
 
+export function projectSelection() {
+  const select = document.getElementById("project-select");
+  const list = document.getElementById("projects-tabs");
+  const items = list.getElementsByTagName("li");
 
+  for (let i = 0; i < items.length; i++) {
+    const option = document.createElement("option");
+    option.value = items[i].textContent;
+    option.text = items[i].textContent;
+    select.appendChild(option);
+  }
+}
+export function openTheForm() {
+  const addNewTask = document.getElementById("add-new-btn");
+  addNewTask.addEventListener("click", () => {
+    document.getElementById("popup-form").style.display = "block";
+  });
 
-const select = document.getElementById("project-select");
-const list = document.getElementById("projects-tabs");
-const items = list.getElementsByTagName("li");
+  const addNewProject = document.getElementById("add-project-btn");
 
-for (let i = 0; i < items.length; i++) {
-  const option = document.createElement("option");
-  option.value = items[i].textContent;
-  option.text = items[i].textContent;
-  select.appendChild(option);
+  addNewProject.addEventListener("click", () => {
+    console.log("clicked");
+    document.getElementById("project-form-wrapper").style.display = "block";
+  });
+}
+
+export function closeTheForm() {
+  const closeForm = document.getElementById("close-form");
+
+  closeForm.addEventListener("click", () => {
+    document.getElementById("popup-form").style.display = "none";
+  });
+
+  window.onclick = function (event) {
+    if (event.target.className === "popup-form") {
+      event.target.style.display = "none";
+    }
+  };
 }

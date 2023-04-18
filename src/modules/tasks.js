@@ -14,7 +14,7 @@ export const newTask = () => {
     dueDate = dueDateInput.value;
     priority = priorityInput.value;
 
-    console.log(title, description, dueDate, priority);
+    
   });
 
   return {
