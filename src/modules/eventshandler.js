@@ -27,6 +27,7 @@ export function projectSelection() {
     select.appendChild(option);
   }
 }
+
 export function openTheForm() {
   const addNewTask = document.getElementById("add-new-btn");
   addNewTask.addEventListener("click", () => {
@@ -34,23 +35,32 @@ export function openTheForm() {
   });
 
   const addNewProject = document.getElementById("add-project-btn");
-
   addNewProject.addEventListener("click", () => {
-    console.log("clicked");
-    document.getElementById("project-form-wrapper").style.display = "block";
+    document.getElementById("project-popup-form").style.display = "block";
   });
 }
 
 export function closeTheForm() {
   const closeForm = document.getElementById("close-form");
-
   closeForm.addEventListener("click", () => {
     document.getElementById("popup-form").style.display = "none";
   });
+  const closeProjectForm = document.getElementById("close-project-form");
+  closeProjectForm.addEventListener("click", () => {
+    document.getElementById("project-popup-form").style.display = "none";
+  });
 
-  window.onclick = function (event) {
-    if (event.target.className === "popup-form") {
-      event.target.style.display = "none";
+  /* window.onclick = function (event) {
+    const popupForm = document.getElementById("popup-form");
+    if (event.target === popupForm || !popupForm.contains(event.target)) {
+      popupForm.style.display = "none";
     }
-  };
+  }; */
 }
+
+
+/* window.onclick = function (event) {
+  if (event.target.className === "project-popup-form") {
+    event.target.style.display = "none";
+  }
+}; */

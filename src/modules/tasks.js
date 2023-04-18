@@ -13,8 +13,6 @@ export const newTask = () => {
     description = descriptionInput.value;
     dueDate = dueDateInput.value;
     priority = priorityInput.value;
-
-    
   });
 
   return {
