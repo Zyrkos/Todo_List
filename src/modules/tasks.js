@@ -1,4 +1,4 @@
-import { addNewTask } from "./modules/domhandler";
+
 
 export const newTask = () => {
   const titleInput = document.getElementById("title");
@@ -18,8 +18,7 @@ export const newTask = () => {
     dueDate = dueDateInput.value;
     priority = priorityInput.value;
     project = projectInput.value;
-    console.log(title, description, dueDate, priority, project);
-    addNewTask();
+    /* console.log(title, description, dueDate, priority, project); */
 
     form.reset();
     formWindow.style.display = "none";
