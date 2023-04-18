@@ -3,9 +3,10 @@ export const newTask = () => {
   const descriptionInput = document.getElementById("description");
   const dueDateInput = document.getElementById("taskDueDate");
   const priorityInput = document.getElementById("task-priority");
+  const projectInput = document.getElementById("project-select")
   const form = document.getElementById("task-form");
 
-  let title, description, dueDate, priority;
+  let title, description, dueDate, priority, project;
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -13,6 +14,9 @@ export const newTask = () => {
     description = descriptionInput.value;
     dueDate = dueDateInput.value;
     priority = priorityInput.value;
+    project = projectInput.value;
+    console.log(title, description, dueDate, priority, project)
+    form.reset();
   });
 
   return {
@@ -20,5 +24,6 @@ export const newTask = () => {
     getDescription: () => description,
     getDueDate: () => dueDate,
     getPriority: () => priority,
+    getProject: () => project
   };
 };

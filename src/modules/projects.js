@@ -1,34 +1,13 @@
-export const projects = (project) => {
-  let project;
+export function newProject() {
+  const nameInput = document.getElementById("project-name");
+  const form = document.getElementById("project-form");
 
-  this.project = project;
-
-  return { project };
-};
-
-
-
-export const newTask = () => {
-  const titleInput = document.getElementById("title");
-  const descriptionInput = document.getElementById("description");
-  const dueDateInput = document.getElementById("taskDueDate");
-  const priorityInput = document.getElementById("task-priority");
-  const form = document.getElementById("task-form");
-
-  let title, description, dueDate, priority;
+  let name;
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    title = titleInput.value;
-    description = descriptionInput.value;
-    dueDate = dueDateInput.value;
-    priority = priorityInput.value;
+    name = nameInput.value;
+    console.log(name);
+    form.reset();
   });
-
-  return {
-    getTitle: () => title,
-    getDescription: () => description,
-    getDueDate: () => dueDate,
-    getPriority: () => priority,
-  };
-};
+}
