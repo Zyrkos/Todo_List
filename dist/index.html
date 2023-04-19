@@ -44,16 +44,16 @@
             <li class="project">Today</li>
             <li class="collapsible" id="collapsible">
               <span>Projects</span>
-              <div class="collap-content" id="collap-content" style="display: none;">
-                
-                  <ul class="projects-tabs" id="projects-tabs">
-                    
-                    
-                  </ul>
-                  <button class="add-project-btn" id="add-project-btn">
-                    New Project
-                  </button>
-                
+              <div
+                class="collap-content"
+                id="collap-content"
+                style="display: none"
+              >
+                <ul class="projects-tabs" id="projects-tabs"></ul>
+                <button class="add-project-btn" id="add-project-btn">
+                  New Project
+                </button>
+
                 <span class="collap-close" id="collap-close">-</span>
               </div>
             </li>
@@ -69,7 +69,9 @@
                 <br />
                 <input type="text" id="project-name" name="name" required />
                 <span class="project-form-btns">
-                  <button class="close-project-form" id="close-project-form">Close</button>
+                  <button class="close-project-form" id="close-project-form">
+                    Close
+                  </button>
                   <button type="submit" class="add-project-name">Add</button>
                 </span>
               </form>
@@ -77,7 +79,6 @@
           </div>
         </nav>
       </div>
-      
 
       <div class="popup-form" id="popup-form" style="display: none">
         <div class="form-wrapper">
@@ -115,7 +116,7 @@
               <label for="date" class="form-label">Due date: </label>
               <br />
               <input
-                type="datetime-local"
+                type="date"
                 class="form-control"
                 id="taskDueDate"
                 max="2030-01-01T00:00"
@@ -136,7 +137,7 @@
               <label for="project-select">Project: </label>
               <br />
               <select class="project-select" id="project-select" required>
-                
+                <option>Default</option>
               </select>
 
               <br />
