@@ -1,6 +1,7 @@
 import { newTask } from "./tasks";
 import { createProjectElement } from "./domcreator";
 import { projectOptions } from "./eventshandler";
+import { createTaskElement } from "./domcreator";
 
 export default class Storage {
   static saveNewProject(projects) {
@@ -20,9 +21,30 @@ export default class Storage {
     }
   }
 
-  /* static saveNewTask(tasks) {
+  static saveNewTask(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-  } */
+  }
+
+  static loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    if (tasks && tasks.length > 0) {
+      const mainContainer = document.getElementById("main-container");
+      for (const task of tasks) {
+        const taskElement = createTaskElement(
+          task.title,
+          task.description,
+          task.dueDate,
+          task.priority,
+          task.project
+        );
+        mainContainer.appendChild(taskElement);
+      }
+    }
+  }
 }
 
-window.addEventListener("load", Storage.loadProjects);
+window.addEventListener("load", () => {
+  Storage.loadProjects();
+  Storage.loadTasks();
+});

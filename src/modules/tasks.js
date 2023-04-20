@@ -1,4 +1,5 @@
 import { createTaskElement } from "./domcreator";
+import Storage from "./storage";
 
 export const newTask = () => {
   const titleInput = document.getElementById("title");
@@ -9,6 +10,8 @@ export const newTask = () => {
   const form = document.getElementById("task-form");
   const formWindow = document.getElementById("popup-form");
 
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
   let title, description, dueDate, priority, project;
 
   form.addEventListener("submit", function (event) {
@@ -18,7 +21,9 @@ export const newTask = () => {
     dueDate = dueDateInput.value;
     priority = priorityInput.value;
     project = projectInput.value;
-    /* console.log(title, description, dueDate, priority, project); */
+    if (!project) {
+      project = "Inbox";
+    }
 
     form.reset();
     formWindow.style.display = "none";
@@ -32,6 +37,16 @@ export const newTask = () => {
       project
     );
     mainContainer.appendChild(taskElement);
+
+    const newTask = {
+      title: title,
+      description: description,
+      dueDate: dueDate,
+      priority: priority,
+      project: project,
+    };
+    tasks.push(newTask);
+    Storage.saveNewTask(tasks);
   });
 
   return {
@@ -42,4 +57,3 @@ export const newTask = () => {
     getProject: () => project,
   };
 };
-

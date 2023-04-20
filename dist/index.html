@@ -40,7 +40,7 @@
       <div class="left-side-nav">
         <nav class="main-nav">
           <ul class="main-nav-ul">
-            <li class="project-inbox">Inbox</li>
+            <li class="project">Inbox</li>
             <li class="project">Today</li>
             <li class="collapsible" id="collapsible">
               <span>Projects</span>
@@ -49,14 +49,10 @@
                 id="collap-content"
                 style="display: none"
               >
-                <ul class="projects-tabs" id="projects-tabs">
-                  
-                </ul>
+                <ul class="projects-tabs" id="projects-tabs"></ul>
                 <button class="add-project-btn" id="add-project-btn">
                   New Project
                 </button>
-
-                <span class="collap-close" id="collap-close">-</span>
               </div>
             </li>
           </ul>
@@ -138,8 +134,8 @@
               <br />
               <label for="project-select">Project: </label>
               <br />
-              <select class="project-select" id="project-select" required>
-                <option value="inbox">Inbox</option>
+              <select class="project-select" id="project-select" >
+                <option value="inbox" selected>Inbox</option>
               </select>
 
               <br />

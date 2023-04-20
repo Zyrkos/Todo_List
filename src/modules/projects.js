@@ -25,8 +25,3 @@ export function newProject() {
     projectOptions();
   });
 }
-
-
-/* export function projectSelection() {
-  const tabs = document.getElementById("project-tabs");
-} */
