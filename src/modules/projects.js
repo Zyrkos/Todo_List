@@ -1,6 +1,7 @@
 import { createProjectElement } from "./domcreator";
+import { projectOptions } from "./eventshandler";
 import Storage from "./storage";
-let projects = [];
+
 export function newProject() {
   const nameInput = document.getElementById("project-name");
   const form = document.getElementById("project-form");
@@ -20,10 +21,11 @@ export function newProject() {
 
     const newProject = { name: name, tasks: [] };
     projects.push(newProject);
-
     Storage.saveNewProject(projects);
+    projectOptions();
   });
 }
+
 
 /* export function projectSelection() {
   const tabs = document.getElementById("project-tabs");

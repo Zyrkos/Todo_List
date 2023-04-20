@@ -25,4 +25,4 @@ export function createProjectElement(name) {
   return folderElement;
 }
 
-/* export function create */
+

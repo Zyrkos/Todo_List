@@ -14,7 +14,16 @@ export function collapsibleTabs() {
 export function projectOptions() {
   const select = document.getElementById("project-select");
   const list = document.getElementById("projects-tabs");
-  const items = list.getElementsByTagName("li");
+  const items = list.getElementsByClassName("project");
+
+  // Remove all existing options so that each time it loads it doesn't repeat all existing options
+  select.innerHTML = "";
+
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.text = "Inbox";
+  defaultOption.selected = true;
+  select.appendChild(defaultOption);
 
   for (let i = 0; i < items.length; i++) {
     const option = document.createElement("option");
