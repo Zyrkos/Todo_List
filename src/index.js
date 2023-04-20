@@ -7,13 +7,13 @@ import {
   openTheForm,
   closeTheForm,
   collapsibleTabs,
-  projectSelection,
+  projectOptions,
 } from "./modules/eventshandler";
 
 newTask();
 collapsibleTabs();
 openTheForm();
-projectSelection();
+projectOptions();
 closeTheForm();
 newProject();
 
