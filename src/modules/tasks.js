@@ -47,6 +47,7 @@ export const newTask = () => {
     };
     tasks.push(newTask);
     Storage.saveNewTask(tasks);
+    Storage.removeTask();
   });
 
   return {

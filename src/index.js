@@ -6,7 +6,6 @@ import {
   openTheForm,
   closeTheForm,
   collapsibleTabs,
-
 } from "./modules/eventshandler";
 
 newTask();
@@ -14,4 +13,3 @@ collapsibleTabs();
 openTheForm();
 closeTheForm();
 newProject();
-

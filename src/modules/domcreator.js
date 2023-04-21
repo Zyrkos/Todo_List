@@ -20,9 +20,8 @@ export function createTaskElement(
   rmvTaskBtn.classList.add("rmv-task-btn");
   rmvTaskBtn.textContent = "X";
   taskElement.appendChild(rmvTaskBtn);
-  Storage.loadProjects()
+
   return taskElement;
-  
 }
 
 export function createProjectElement(name) {

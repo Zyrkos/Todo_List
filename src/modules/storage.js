@@ -1,4 +1,3 @@
-import { newTask } from "./tasks";
 import { createProjectElement } from "./domcreator";
 import { projectOptions } from "./eventshandler";
 import { createTaskElement } from "./domcreator";
@@ -42,7 +41,6 @@ export default class Storage {
         );
         mainContainer.appendChild(taskElement);
       }
-      Storage.removeTask(); // Call removeTask() after the task elements have been created
     }
   }
 
@@ -56,6 +54,8 @@ export default class Storage {
         let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
         tasks = tasks.filter(
           (task) => task.title !== taskToRemove.querySelector("h2").textContent
+          //compares the task that was just deleted to the tasks in the array,
+          //if the names match then the deleted task in not returned
         );
         localStorage.setItem("tasks", JSON.stringify(tasks));
       });
@@ -67,4 +67,3 @@ window.addEventListener("load", () => {
   Storage.loadProjects();
   Storage.loadTasks();
 });
-
