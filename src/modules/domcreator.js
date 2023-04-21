@@ -1,3 +1,5 @@
+import Storage from "./storage";
+
 export function createTaskElement(
   title,
   description,
@@ -14,7 +16,13 @@ export function createTaskElement(
     <p>Priority: ${priority}</p>
     <p>Project: ${project}</p>
   `;
+  const rmvTaskBtn = document.createElement("button");
+  rmvTaskBtn.classList.add("rmv-task-btn");
+  rmvTaskBtn.textContent = "X";
+  taskElement.appendChild(rmvTaskBtn);
+  Storage.loadProjects()
   return taskElement;
+  
 }
 
 export function createProjectElement(name) {
@@ -24,5 +32,3 @@ export function createProjectElement(name) {
 
   return folderElement;
 }
-
-

@@ -21,6 +21,8 @@ export default class Storage {
     }
   }
 
+  /* static removeProject() {} */
+
   static saveNewTask(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
@@ -40,7 +42,24 @@ export default class Storage {
         );
         mainContainer.appendChild(taskElement);
       }
+      Storage.removeTask(); // Call removeTask() after the task elements have been created
     }
+  }
+
+  static removeTask() {
+    const delBtns = document.querySelectorAll(".rmv-task-btn");
+    delBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const taskToRemove = btn.parentNode;
+        taskToRemove.remove();
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks = tasks.filter(
+          (task) => task.title !== taskToRemove.querySelector("h2").textContent
+        );
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      });
+    });
   }
 }
 
@@ -48,3 +67,4 @@ window.addEventListener("load", () => {
   Storage.loadProjects();
   Storage.loadTasks();
 });
+

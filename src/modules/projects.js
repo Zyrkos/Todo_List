@@ -8,6 +8,7 @@ export function newProject() {
   const formWindow = document.getElementById("project-popup-form");
 
   let projects = JSON.parse(localStorage.getItem("projects")) || [];
+  console.log(projects)
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -25,3 +26,5 @@ export function newProject() {
     projectOptions();
   });
 }
+
+
