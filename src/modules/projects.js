@@ -8,7 +8,7 @@ export function newProject() {
   const formWindow = document.getElementById("project-popup-form");
 
   let projects = JSON.parse(localStorage.getItem("projects")) || [];
-  console.log(projects)
+  console.log(projects);
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -21,10 +21,9 @@ export function newProject() {
     projectsList.appendChild(projectElement);
 
     const newProject = { name: name, tasks: [] };
+
     projects.push(newProject);
     Storage.saveNewProject(projects);
     projectOptions();
   });
 }
-
-
