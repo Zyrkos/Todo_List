@@ -43,12 +43,6 @@ export default class Storage {
       }
     }
   }
-
-  /* static tasksToProjects() {
-    const projects = JSON.parse(localStorage.getItem("projects"));
-
-
-  } */
 }
 
 window.addEventListener("load", () => {
