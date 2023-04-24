@@ -65,4 +65,14 @@ export function closeTheForm() {
   };
 }
 
+export function tabSwitch() {
+  const tabs = document.getElementById("projects-tabs");
+  const projects = document.getElementById("project");
+
+  tabs.addEventListener("click", function (event) {
+    const clickedTab = event.target;
+    console.log(clickedTab.textContent);
+   
+  });
+}
 
