@@ -12,15 +12,17 @@ export const newTask = () => {
 
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  let title, description, dueDate, priority, project;
+  let title, description, dueDate, priority, project, id;
 
   form.addEventListener("submit", function (event) {
+    const id = Date.now();
     event.preventDefault();
     title = titleInput.value;
     description = descriptionInput.value;
     dueDate = dueDateInput.value;
     priority = priorityInput.value;
     project = projectInput.value;
+    id = taskId;
     if (!project) {
       project = "Inbox";
     }
@@ -34,7 +36,8 @@ export const newTask = () => {
       description,
       dueDate,
       priority,
-      project
+      project,
+      id
     );
     mainContainer.appendChild(taskElement);
 
@@ -44,6 +47,7 @@ export const newTask = () => {
       dueDate: dueDate,
       priority: priority,
       project: project,
+      id: id,
     };
     tasks.push(newTask);
     Storage.saveNewTask(tasks);
@@ -55,5 +59,6 @@ export const newTask = () => {
     getDueDate: () => dueDate,
     getPriority: () => priority,
     getProject: () => project,
+    /* getId: () => id, */
   };
 };

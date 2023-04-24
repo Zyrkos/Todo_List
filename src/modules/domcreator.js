@@ -1,6 +1,5 @@
 import { newProject } from "./projects";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 as uuidv4 } from "uuid";
 
 export function createTaskElement(
   title,
@@ -13,6 +12,8 @@ export function createTaskElement(
 
   const taskElement = document.createElement("div");
   taskElement.classList.add("task");
+  const taskId = uuidv4();
+  taskElement.setAttribute("data-task-id", taskId); // Set the id as a data attribute instead
   taskElement.innerHTML = `
     <h2 class="title">${title}</h2>
     <p class="task-element">Description: ${description}</p>
@@ -24,7 +25,7 @@ export function createTaskElement(
   const rmvTaskBtn = document.createElement("button");
   rmvTaskBtn.classList.add("rmv-task-btn");
   rmvTaskBtn.textContent = "X";
-  taskElement.appendChild(rmvTaskBtn)
+  taskElement.appendChild(rmvTaskBtn);
   rmvTaskBtn.addEventListener("click", () => {
     taskElement.remove();
 
@@ -51,6 +52,7 @@ export function createTaskElement(
         description: description,
         dueDate: dueDate,
         priority: priority,
+        id: taskId,
       });
       break;
     }
@@ -58,14 +60,13 @@ export function createTaskElement(
 
   // Save the updated projects array to local storage
   localStorage.setItem("projects", JSON.stringify(projects));
-
+  console.log(taskId);
   return taskElement;
 }
 
-export function createProjectElement(name) {
+export function createProjectElement(name, projectId) {
   const folderElement = document.createElement("li");
   folderElement.classList.add("project");
-  const projectId = uuidv4();
   folderElement.setAttribute("id", projectId);
   folderElement.setAttribute("data-project-id", projectId);
   folderElement.textContent = name;
