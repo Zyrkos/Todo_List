@@ -32,16 +32,38 @@ export default class Storage {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
 
     if (tasks && tasks.length > 0) {
+      const projects = JSON.parse(localStorage.getItem("projects")) || [];
       const mainContainer = document.getElementById("main-container");
+
       for (const task of tasks) {
+        const { title, description, dueDate, priority, project, id } = task;
+
+        const existingProject = projects.find((p) => p.name === project);
+        if (existingProject && existingProject.tasks.some((t) => t.id === id)) {
+          // Check if task with same ID already exists in project, if it does: skip adding it
+          continue;
+        }
+
         const taskElement = createTaskElement(
-          task.title,
-          task.description,
-          task.dueDate,
-          task.priority,
-          task.project
+          title,
+          description,
+          dueDate,
+          priority,
+          project,
+          id
         );
         mainContainer.appendChild(taskElement);
+
+        if (existingProject) {
+          existingProject.tasks.push({
+            title,
+            description,
+            dueDate,
+            priority,
+            id,
+          });
+          localStorage.setItem("projects", JSON.stringify(projects));
+        }
       }
     }
   }
