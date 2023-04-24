@@ -1,4 +1,6 @@
 import { newProject } from "./projects";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export function createTaskElement(
   title,
@@ -63,6 +65,9 @@ export function createTaskElement(
 export function createProjectElement(name) {
   const folderElement = document.createElement("li");
   folderElement.classList.add("project");
+  const projectId = uuidv4();
+  folderElement.setAttribute("id", projectId);
+  folderElement.setAttribute("data-project-id", projectId);
   folderElement.textContent = name;
 
   return folderElement;

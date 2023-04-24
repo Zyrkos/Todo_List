@@ -16,11 +16,14 @@ export function newProject() {
     form.reset();
     formWindow.style.display = "none";
 
+    // Generate a unique ID for the new project
+    const id = Date.now();
+
     const projectsList = document.getElementById("projects-tabs");
-    const projectElement = createProjectElement(name);
+    const projectElement = createProjectElement(name, id);
     projectsList.appendChild(projectElement);
 
-    const newProject = { name: name, tasks: [] };
+    const newProject = { id: id, name: name, tasks: [] };
 
     projects.push(newProject);
     Storage.saveNewProject(projects);

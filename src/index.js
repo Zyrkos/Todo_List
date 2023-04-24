@@ -3,7 +3,7 @@ import { newTask } from "./modules/tasks";
 import { newProject } from "./modules/projects";
 
 import {
-  tabSwitch,
+  /* tabSwitch, */
   openTheForm,
   closeTheForm,
   collapsibleTabs,
@@ -14,4 +14,4 @@ collapsibleTabs();
 openTheForm();
 closeTheForm();
 newProject();
-tabSwitch();
+/* tabSwitch(); */
