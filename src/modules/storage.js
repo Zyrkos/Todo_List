@@ -17,6 +17,25 @@ export default class Storage {
         const projectElement = createProjectElement(project.name);
         projectElement.dataset.projectId = project.id;
         projectsList.appendChild(projectElement);
+
+        if (tasks && tasks.length > 0) {
+          const projectTasks = tasks.filter(
+            (task) => task.project === project.name
+          );
+          const mainContainer = document.getElementById("main-container");
+
+          projectTasks.forEach((task) => {
+            const taskElement = createTaskElement(
+              task.title,
+              task.description,
+              task.dueDate,
+              task.priority,
+              task.project,
+              task.id
+            );
+            mainContainer.appendChild(taskElement);
+          });
+        }
       });
       projectOptions();
     }
