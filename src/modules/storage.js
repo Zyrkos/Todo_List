@@ -22,7 +22,6 @@ export default class Storage {
           const projectTasks = tasks.filter(
             (task) => task.project === project.name
           );
-          const mainContainer = document.getElementById("main-container");
 
           projectTasks.forEach((task) => {
             const taskElement = createTaskElement(
@@ -33,10 +32,16 @@ export default class Storage {
               task.project,
               task.id
             );
+            const mainContainer = document.getElementById("main-container");
             mainContainer.appendChild(taskElement);
           });
         }
       });
+
+      localStorage.setItem("projects", JSON.stringify(projects)); //important to save the
+      //projects so that it
+      //doesnt duplicate the tasks in localstorage each time page is reloaded
+
       projectOptions();
     }
   }
@@ -89,6 +94,6 @@ export default class Storage {
 }
 
 window.addEventListener("load", () => {
-  Storage.loadProjects();
   Storage.loadTasks();
+  Storage.loadProjects();
 });
