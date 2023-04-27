@@ -1,6 +1,3 @@
-import { newProject } from "./projects";
-import { v4 as uuidv4 } from "uuid";
-
 export function createTaskElement(
   title,
   description,
@@ -27,21 +24,21 @@ export function createTaskElement(
   rmvTaskBtn.textContent = "X";
   taskElement.appendChild(rmvTaskBtn);
   rmvTaskBtn.addEventListener("click", () => {
-  taskElement.remove();
+    taskElement.remove();
 
-  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks = tasks.filter((task) => task.id !== id);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks = tasks.filter((task) => task.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
-  let projects = JSON.parse(localStorage.getItem("projects")) || [];
-  for (let i = 0; i < projects.length; i++) {
-    if (projects[i].name === project) {
-      projects[i].tasks = projects[i].tasks.filter((task) => task.id !== id);
-      localStorage.setItem("projects", JSON.stringify(projects));
-      break;
+    let projects = JSON.parse(localStorage.getItem("projects")) || [];
+    for (let i = 0; i < projects.length; i++) {
+      if (projects[i].name === project) {
+        projects[i].tasks = projects[i].tasks.filter((task) => task.id !== id);
+        localStorage.setItem("projects", JSON.stringify(projects));
+        break;
+      }
     }
-  }
-});
+  });
   for (let i = 0; i < projects.length; i++) {
     if (projects[i].name === project) {
       projects[i].tasks.push({
