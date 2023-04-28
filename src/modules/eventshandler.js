@@ -70,7 +70,11 @@ export function tabSwitch() {
 
   tabs.addEventListener("click", function (event) {
     const clickedTab = event.target;
-    const projectId = clickedTab.getAttribute("data-project-id");
-    console.log(projectId)
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    const projectId = parseInt(clickedTab.getAttribute("data-project-id"));
+    const projects = JSON.parse(localStorage.getItem("projects")) || [];
+    const project = projects.find((p) => p.id === projectId);
+    console.log(project);
   });
 }
