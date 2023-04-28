@@ -65,14 +65,12 @@ export function closeTheForm() {
   };
 }
 
-/* export function tabSwitch() {
+export function tabSwitch() {
   const tabs = document.getElementById("projects-tabs");
-  const projects = document.getElementById("project");
 
   tabs.addEventListener("click", function (event) {
     const clickedTab = event.target;
-    const projectId = clickedTab.projectId; // assuming each tab has a "data-project-id" attribute that corresponds to the project ID in localStorage
-    const project = JSON.parse(localStorage.getItem("projects")).find(p => p.id === projectId); // find the project with the corresponding ID in localStorage
-    console.log(project.arrays); // log the arrays contained in the project
+    const projectId = clickedTab.getAttribute("data-project-id");
+    console.log(projectId)
   });
-} */
+}
