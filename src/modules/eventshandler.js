@@ -67,12 +67,37 @@ export function closeTheForm() {
 
 export function tabSwitch() {
   const tabs = document.getElementById("projects-tabs");
+  let currentContainer = null;
 
   tabs.addEventListener("click", function (event) {
+    const mainContainer = document.getElementById("main-container");
     const clickedTab = event.target;
     const projectId = parseInt(clickedTab.getAttribute("data-project-id"));
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
     const project = projects.find((p) => p.id === projectId);
+
+    if (currentContainer && currentContainer.id === project.name) {
+      return;
+    }
+
+    if (currentContainer && currentContainer.id !== project.name) {
+      mainContainer.removeChild(currentContainer);
+      currentContainer = null;
+    }
+
+    if (!currentContainer) {
+      const newContainer = document.createElement("div");
+      newContainer.id = project.name;
+      newContainer.classList.add("project-container");
+      mainContainer.appendChild(newContainer);
+      currentContainer = newContainer;
+    }
+
     console.log(project);
   });
 }
+
+
+
+
+

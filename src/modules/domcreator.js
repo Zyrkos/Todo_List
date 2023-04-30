@@ -66,3 +66,15 @@ export function createProjectElement(name, projectId) {
 
   return folderElement;
 }
+
+
+
+
+// Display tasks of the selected project
+function displayTasks(tasks) {
+  tasksContainer.innerHTML = '';
+  tasks.forEach(task => {
+    const taskElement = createTaskElement(task.title, task.description, task.dueDate, task.priority, task.project, task.id);
+    tasksContainer.appendChild(taskElement);
+  });
+}
