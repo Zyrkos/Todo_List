@@ -13,10 +13,19 @@ export default class Storage {
 
     if (projects && projects.length > 0) {
       const projectsList = document.getElementById("projects-tabs");
+      const mainContainer = document.getElementById("main-container");
+
       projects.forEach((project) => {
         const projectElement = createProjectElement(project.name);
         projectElement.dataset.projectId = project.id;
         projectsList.appendChild(projectElement);
+
+        const projectContainer = document.createElement("div");
+        projectContainer.classList.add("project-container");
+        projectContainer.setAttribute("id", project.name);
+        projectContainer.style.display = "none";
+
+        mainContainer.appendChild(projectContainer);
 
         if (tasks && tasks.length > 0) {
           const projectTasks = tasks.filter(
@@ -32,15 +41,11 @@ export default class Storage {
               task.project,
               task.id
             );
-            const mainContainer = document.getElementById("main-container");
-            mainContainer.appendChild(taskElement);
+
+            projectContainer.appendChild(taskElement);
           });
         }
       });
-
-      localStorage.setItem("projects", JSON.stringify(projects)); //important to save the
-      //projects so that it
-      //doesnt duplicate the tasks in localstorage each time the page is reloaded
 
       projectOptions();
     }

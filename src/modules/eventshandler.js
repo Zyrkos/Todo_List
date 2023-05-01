@@ -93,11 +93,9 @@ export function tabSwitch() {
       currentContainer = newContainer;
     }
 
-    console.log(project);
+    
   });
 }
 
 
-
-
-
+/* console.log(project); */
