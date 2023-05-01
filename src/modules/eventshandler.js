@@ -67,35 +67,22 @@ export function closeTheForm() {
 
 export function tabSwitch() {
   const tabs = document.getElementById("projects-tabs");
-  let currentContainer = null;
+  let currentTab = null;
 
   tabs.addEventListener("click", function (event) {
-    const mainContainer = document.getElementById("main-container");
     const clickedTab = event.target;
     const projectId = parseInt(clickedTab.getAttribute("data-project-id"));
-    const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    const project = projects.find((p) => p.id === projectId);
+    const projectName = clickedTab.innerText;
+    const projectDiv = document.getElementById(projectName);
 
-    if (currentContainer && currentContainer.id === project.name) {
-      return;
+    if (projectDiv && currentTab !== projectDiv) {
+      if (currentTab) {
+        currentTab.style.display = "none";
+      }
+      projectDiv.style.display = "block";
+      currentTab = projectDiv;
     }
-
-    if (currentContainer && currentContainer.id !== project.name) {
-      mainContainer.removeChild(currentContainer);
-      currentContainer = null;
-    }
-
-    if (!currentContainer) {
-      const newContainer = document.createElement("div");
-      newContainer.id = project.name;
-      newContainer.classList.add("project-container");
-      mainContainer.appendChild(newContainer);
-      currentContainer = newContainer;
-    }
-
-    
   });
 }
-
 
 /* console.log(project); */
