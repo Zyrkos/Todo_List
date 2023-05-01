@@ -25,11 +25,16 @@ export function newProject() {
     projectContainer.classList.add("project-container");
     projectContainer.setAttribute("id", name );
     projectContainer.style.display = "none";
+    
+    const header = document.createElement("h2");
+    header.textContent = name;
 
     const projectsList = document.getElementById("projects-tabs");
     const projectElement = createProjectElement(name, id);
     projectsList.appendChild(projectElement);
+    projectContainer.appendChild(header)
     mainContainer.appendChild(projectContainer);
+    
 
     const newProject = { id: id, name: name, tasks: [] };
     projects.push(newProject);
