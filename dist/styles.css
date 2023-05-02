@@ -55,6 +55,12 @@ li {
   grid-template-columns: 1fr 5fr;
 }
 
+.project-delete {
+  width: 2rem;
+  height: 2rem;
+  content: "X";
+}
+
 /* .main-container {
 
 }

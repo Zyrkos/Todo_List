@@ -24,7 +24,18 @@ export default class Storage {
         projectContainer.classList.add("project-container");
         projectContainer.setAttribute("id", project.name);
         projectContainer.style.display = "none";
+        const headerSpan = document.createElement("span");
+        const header = document.createElement("h2");
+        header.textContent = project.name;
 
+        header.textContent = project.name;
+
+        const rmvBtn = document.createElement("button");
+        rmvBtn.setAttribute("id", "project-delete");
+        rmvBtn.classList.add("project-delete");
+        headerSpan.appendChild(header);
+        headerSpan.appendChild(rmvBtn);
+        projectContainer.appendChild(headerSpan);
         mainContainer.appendChild(projectContainer);
 
         if (tasks && tasks.length > 0) {
