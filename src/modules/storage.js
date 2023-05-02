@@ -1,6 +1,7 @@
-import { createProjectElement } from "./domcreator";
 import { projectOptions } from "./eventshandler";
 import { createTaskElement } from "./domcreator";
+import { createProjectElement } from "./domcreator";
+
 
 export default class Storage {
   static saveNewProject(projects) {
@@ -13,30 +14,9 @@ export default class Storage {
 
     if (projects && projects.length > 0) {
       const projectsList = document.getElementById("projects-tabs");
-      const mainContainer = document.getElementById("main-container");
 
       projects.forEach((project) => {
-        const projectElement = createProjectElement(project.name);
-        projectElement.dataset.projectId = project.id;
-        projectsList.appendChild(projectElement);
-
-        const projectContainer = document.createElement("div");
-        projectContainer.classList.add("project-container");
-        projectContainer.setAttribute("id", project.name);
-        projectContainer.style.display = "none";
-        const headerSpan = document.createElement("span");
-        const header = document.createElement("h2");
-        header.textContent = project.name;
-
-        header.textContent = project.name;
-
-        const rmvBtn = document.createElement("button");
-        rmvBtn.setAttribute("id", "project-delete");
-        rmvBtn.classList.add("project-delete");
-        headerSpan.appendChild(header);
-        headerSpan.appendChild(rmvBtn);
-        projectContainer.appendChild(headerSpan);
-        mainContainer.appendChild(projectContainer);
+        createProjectElement(project.name, project.id);
 
         if (tasks && tasks.length > 0) {
           const projectTasks = tasks.filter(
@@ -53,6 +33,7 @@ export default class Storage {
               task.id
             );
 
+            const projectContainer = document.getElementById(task.project);
             projectContainer.appendChild(taskElement);
           });
         }

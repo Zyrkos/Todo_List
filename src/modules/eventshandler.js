@@ -71,7 +71,6 @@ export function tabSwitch() {
 
   tabs.addEventListener("click", function (event) {
     const clickedTab = event.target;
-    const projectId = parseInt(clickedTab.getAttribute("data-project-id"));
     const projectName = clickedTab.innerText;
     const projectDiv = document.getElementById(projectName);
 

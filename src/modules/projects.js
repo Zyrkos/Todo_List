@@ -1,6 +1,6 @@
-import { createProjectElement } from "./domcreator";
 import { projectOptions } from "./eventshandler";
 import Storage from "./storage";
+import { createProjectElement } from "./domcreator";
 
 export function newProject() {
   const nameInput = document.getElementById("project-name");
@@ -14,33 +14,11 @@ export function newProject() {
     const name = nameInput.value;
     form.reset();
     formWindow.style.display = "none";
-
+  
     const id = Date.now();
-
-    const mainContainer = document.getElementById("main-container");
-
-    const projectContainer = document.createElement("div");
-    projectContainer.classList.add("project-container");
-    projectContainer.setAttribute("id", name);
-    projectContainer.style.display = "none";
-    const headerSpan = document.createElement("span");
-
-    const header = document.createElement("h2");
-    header.textContent = name;
-
-    const rmvBtn = document.createElement("button");
-    rmvBtn.setAttribute("id", "project-delete");
-    rmvBtn.classList.add("project-delete");
-
-    const projectsList = document.getElementById("projects-tabs");
-    const projectElement = createProjectElement(name, id);
-    projectsList.appendChild(projectElement);
-
-    headerSpan.appendChild(header);
-    headerSpan.appendChild(rmvBtn);
-    projectContainer.appendChild(headerSpan);
-    mainContainer.appendChild(projectContainer);
-
+  
+    createProjectElement(name, id);
+  
     const newProject = { id: id, name: name, tasks: [] };
     projects.push(newProject);
     Storage.saveNewProject(projects);

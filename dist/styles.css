@@ -56,8 +56,10 @@ li {
 }
 
 .project-delete {
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+}
+
+.project-delete::after {
   content: "X";
 }
 

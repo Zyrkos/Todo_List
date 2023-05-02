@@ -57,7 +57,7 @@ export function createTaskElement(
   return taskElement;
 }
 
-export function createProjectElement(name, projectId) {
+export function createProjectTabs(name, projectId) {
   const folderElement = document.createElement("li");
   folderElement.classList.add("project");
 
@@ -67,5 +67,31 @@ export function createProjectElement(name, projectId) {
   return folderElement;
 }
 
+
+export function createProjectElement(name, id) {
+  const mainContainer = document.getElementById("main-container");
+
+  const projectContainer = document.createElement("div");
+  projectContainer.classList.add("project-container");
+  projectContainer.setAttribute("id", name);
+  projectContainer.style.display = "none";
+  const headerSpan = document.createElement("span");
+
+  const header = document.createElement("h2");
+  header.textContent = name;
+
+  const rmvBtn = document.createElement("button");
+  rmvBtn.setAttribute("id", "project-delete");
+  rmvBtn.classList.add("project-delete");
+
+  const projectsList = document.getElementById("projects-tabs");
+  const projectElement = createProjectTabs(name, id);
+  projectsList.appendChild(projectElement);
+
+  headerSpan.appendChild(header);
+  headerSpan.appendChild(rmvBtn);
+  projectContainer.appendChild(headerSpan);
+  mainContainer.appendChild(projectContainer);
+}
 
 
