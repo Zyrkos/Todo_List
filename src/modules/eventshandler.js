@@ -22,7 +22,7 @@ export function projectOptions() {
   const defaultOption = document.createElement("option");
   defaultOption.value = "";
   defaultOption.text = "Inbox";
-  defaultOption.selected = true;
+
   select.appendChild(defaultOption);
 
   for (let i = 0; i < items.length; i++) {

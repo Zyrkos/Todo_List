@@ -35,6 +35,9 @@ export default class Storage {
           });
         }
       });
+      localStorage.setItem("projects", JSON.stringify(projects)); //important to save the
+      //projects so that it
+      //doesnt duplicate the tasks in localstorage each time page is reloaded
 
       projectOptions();
     }

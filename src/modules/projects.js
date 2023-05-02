@@ -21,7 +21,9 @@ export function newProject() {
 
     const newProject = { id: id, name: name, tasks: [] };
     projects.push(newProject);
+
     Storage.saveNewProject(projects);
+
     projectOptions();
   });
 }

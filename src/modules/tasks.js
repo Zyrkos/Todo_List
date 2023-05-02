@@ -20,11 +20,14 @@ export const newTask = () => {
     const dueDate = dueDateInput.value;
     const priority = priorityInput.value;
     let project = projectInput.value;
+    if (!project) {
+      project = "Inbox";
+    }
 
     form.reset();
     formWindow.style.display = "none";
 
-    const projectContainers = document.getElementById(`${project}`);
+    const mainContainer = document.getElementById("main-container");
     const taskElement = createTaskElement(
       title,
       description,
@@ -33,8 +36,7 @@ export const newTask = () => {
       project,
       id
     );
-
-    projectContainers.appendChild(taskElement);
+    mainContainer.appendChild(taskElement);
 
     const newTask = {
       title: title,
@@ -45,8 +47,10 @@ export const newTask = () => {
       id: id,
     };
     tasks.push(newTask);
-    console.log(id);
+    console.log(id)
     Storage.saveNewTask(tasks);
+    
+
   });
 
   return {
