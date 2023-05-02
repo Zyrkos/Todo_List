@@ -26,7 +26,7 @@ export const newTask = () => {
 
     form.reset();
     formWindow.style.display = "none";
-
+    const defaultContainer = document.getElementById("inbox")
     const projectContainers = document.getElementById(`${project}`);
     const taskElement = createTaskElement(
       title,
@@ -37,7 +37,11 @@ export const newTask = () => {
       id
     );
 
-    projectContainers.appendChild(taskElement)
+    if (projectContainers) {
+      projectContainers.appendChild(taskElement);
+    } else {
+      defaultContainer.appendChild(taskElement);
+    }
    
 
     const newTask = {
