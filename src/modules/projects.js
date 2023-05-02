@@ -14,11 +14,11 @@ export function newProject() {
     const name = nameInput.value;
     form.reset();
     formWindow.style.display = "none";
-  
+
     const id = Date.now();
-  
+
     createProjectElement(name, id);
-  
+
     const newProject = { id: id, name: name, tasks: [] };
     projects.push(newProject);
     Storage.saveNewProject(projects);
