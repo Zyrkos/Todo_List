@@ -2,7 +2,6 @@ import { projectOptions } from "./eventshandler";
 import { createTaskElement } from "./domcreator";
 import { createProjectElement } from "./domcreator";
 
-
 export default class Storage {
   static saveNewProject(projects) {
     localStorage.setItem("projects", JSON.stringify(projects));
@@ -13,8 +12,6 @@ export default class Storage {
     const tasks = JSON.parse(localStorage.getItem("tasks"));
 
     if (projects && projects.length > 0) {
-      const projectsList = document.getElementById("projects-tabs");
-
       projects.forEach((project) => {
         createProjectElement(project.name, project.id);
 

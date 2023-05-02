@@ -76,6 +76,7 @@ export function createProjectElement(name, id) {
   projectContainer.setAttribute("id", name);
   projectContainer.style.display = "none";
   const headerSpan = document.createElement("span");
+  headerSpan.classList.add("header-span")
 
   const header = document.createElement("h2");
   header.textContent = name;

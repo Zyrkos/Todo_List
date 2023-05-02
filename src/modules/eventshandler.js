@@ -67,7 +67,8 @@ export function closeTheForm() {
 
 export function tabSwitch() {
   const tabs = document.getElementById("projects-tabs");
-  let currentTab = null;
+  const defaultTab = document.getElementById("inbox");
+  let currentTab = defaultTab;
 
   tabs.addEventListener("click", function (event) {
     const clickedTab = event.target;
