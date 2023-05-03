@@ -27,7 +27,7 @@ export const newTask = () => {
     form.reset();
     formWindow.style.display = "none";
 
-    const mainContainer = document.getElementById("main-container");
+    const projectContainer = document.getElementById(project);
     const taskElement = createTaskElement(
       title,
       description,
@@ -36,7 +36,7 @@ export const newTask = () => {
       project,
       id
     );
-    mainContainer.appendChild(taskElement);
+    projectContainer.appendChild(taskElement);
 
     const newTask = {
       title: title,
