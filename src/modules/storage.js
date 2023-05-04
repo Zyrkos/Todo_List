@@ -54,7 +54,7 @@ export default class Storage {
 
     if (tasks && tasks.length > 0) {
       const projects = JSON.parse(localStorage.getItem("projects")) || [];
-      const mainContainer = document.getElementById("main-container");
+      const defaultContainer = document.getElementById("inbox");
 
       for (const task of tasks) {
         const { title, description, dueDate, priority, project, id } = task;
@@ -73,7 +73,7 @@ export default class Storage {
           project,
           id
         );
-        mainContainer.appendChild(taskElement);
+        defaultContainer.appendChild(taskElement);
 
         if (existingProject) {
           existingProject.tasks.push({

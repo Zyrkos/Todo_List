@@ -67,7 +67,6 @@ export function createProjectTabs(name, projectId) {
   return folderElement;
 }
 
-
 export function createProjectElement(name, id) {
   const mainContainer = document.getElementById("main-container");
 
@@ -75,8 +74,9 @@ export function createProjectElement(name, id) {
   projectContainer.classList.add("project-container");
   projectContainer.setAttribute("id", name);
   projectContainer.style.display = "none";
+
   const headerSpan = document.createElement("span");
-  headerSpan.classList.add("header-span")
+  headerSpan.classList.add("header-span");
 
   const header = document.createElement("h2");
   header.textContent = name;
@@ -84,6 +84,25 @@ export function createProjectElement(name, id) {
   const rmvBtn = document.createElement("button");
   rmvBtn.setAttribute("id", "project-delete");
   rmvBtn.classList.add("project-delete");
+
+  rmvBtn.addEventListener("click", () => {
+    // Remove project element from UI
+    projectContainer.remove();
+  
+    // Remove project from local storage
+    let projects = JSON.parse(localStorage.getItem("projects")) || [];
+    projects = projects.filter((project) => project.id !== id);
+    localStorage.setItem("projects", JSON.stringify(projects));
+  
+    // Remove project tab from UI
+    const projectElement = document.getElementById(`project-${id}`);
+    projectElement.remove();
+  
+  /*   // Remove tasks belonging to the project from local storage
+    let tasks = JSON.parse(localStorage.getItem("projects")) || [];
+    tasks = projects.filter((task) => task.projectId !== id);
+    localStorage.setItem("tasks", JSON.stringify(tasks)); */
+  });
 
   const projectsList = document.getElementById("projects-tabs");
   const projectElement = createProjectTabs(name, id);
@@ -94,5 +113,3 @@ export function createProjectElement(name, id) {
   projectContainer.appendChild(headerSpan);
   mainContainer.appendChild(projectContainer);
 }
-
-

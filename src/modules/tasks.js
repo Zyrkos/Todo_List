@@ -47,10 +47,8 @@ export const newTask = () => {
       id: id,
     };
     tasks.push(newTask);
-    console.log(id)
+    console.log(id);
     Storage.saveNewTask(tasks);
-    
-
   });
 
   return {
