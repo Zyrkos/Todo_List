@@ -77,7 +77,7 @@
           </div>
         </nav>
       </div>
-
+      <!-- TASK FORM -->
       <div class="popup-form" id="popup-form" style="display: none">
         <div class="form-wrapper">
           <h2 class="form-title">New Task</h2>
@@ -134,15 +134,84 @@
               <br />
               <label for="project-select">Project: </label>
               <br />
-              <select class="project-select" id="project-select">
-                
-              </select>
+              <select class="project-select" id="project-select"></select>
 
               <br />
             </div>
             <br />
             <div class="form-btns" id="form-btns">
               <button id="close-form" type="button">Close</button>
+
+              <button type="submit">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- TASK FORM END -->
+
+      <div class="popup-form" id="edit-form" style="display: none">
+        <div class="form-wrapper">
+          <h2 class="form-title">New Task</h2>
+          <form id="edit-form" class="task-form" data-type="form">
+            <div class="form-left-col">
+              <label for="title" class="form-label">Title: </label>
+              <br />
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                class="form-input"
+              />
+              <span class="invalid-feedback" style="display: none"
+                >Title is required!</span
+              >
+              <br />
+              <label for="description" class="form-label">Description: </label>
+              <br />
+              <textarea
+                type="text"
+                id="description"
+                name="description"
+                required
+                class="form-input"
+              >
+              </textarea>
+              <span class="invalid-feedback" style="display: none"
+                >Description is required!</span
+              >
+            </div>
+            <div class="form-right-col">
+              <label for="date" class="form-label">Due date: </label>
+              <br />
+              <input
+                type="date"
+                class="form-control"
+                id="taskDueDate"
+                max="2030-01-01T00:00"
+                required
+              />
+              <span class="invalid-feedback" style="display: none"
+                >Due date is required!</span
+              >
+              <br />
+              <label for="task-priority">Priority: </label>
+              <br />
+              <select class="priority-select" id="task-priority" required>
+                <option value="low" selected>Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+              <br />
+              <label for="project-select">Project: </label>
+              <br />
+              <select class="project-select" id="project-select"></select>
+
+              <br />
+            </div>
+            <br />
+            <div class="form-btns" id="edit-btns">
+              <button id="edit-form-close" type="button">Close</button>
 
               <button type="submit">Add</button>
             </div>

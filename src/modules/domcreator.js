@@ -18,6 +18,8 @@ export function createTaskElement(
     <p class="task-element">Priority: ${priority}</p>
     <p>Project: ${project}</p>
   `;
+  
+  
 
   const rmvTaskBtn = document.createElement("button");
   rmvTaskBtn.classList.add("rmv-task-btn");
@@ -51,6 +53,11 @@ export function createTaskElement(
       break;
     }
   }
+
+  const editBtn = document.createElement("button");
+  editBtn.classList.add("edit-task-btn");
+  editBtn.textContent = "O";
+  taskElement.appendChild(editBtn);
 
   localStorage.setItem("projects", JSON.stringify(projects));
 
@@ -88,20 +95,15 @@ export function createProjectElement(name, id) {
   rmvBtn.addEventListener("click", () => {
     // Remove project element from UI
     projectContainer.remove();
-  
+
     // Remove project from local storage
     let projects = JSON.parse(localStorage.getItem("projects")) || [];
     projects = projects.filter((project) => project.id !== id);
     localStorage.setItem("projects", JSON.stringify(projects));
-  
+
     // Remove project tab from UI
     const projectElement = document.getElementById(`project-${id}`);
     projectElement.remove();
-  
-  /*   // Remove tasks belonging to the project from local storage
-    let tasks = JSON.parse(localStorage.getItem("projects")) || [];
-    tasks = projects.filter((task) => task.projectId !== id);
-    localStorage.setItem("tasks", JSON.stringify(tasks)); */
   });
 
   const projectsList = document.getElementById("projects-tabs");
