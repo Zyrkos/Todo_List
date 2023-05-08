@@ -13,7 +13,7 @@ export function collapsibleTabs() {
 
 export function projectOptions() {
   const select = document.getElementById("project-select");
-  const editSel = document.getElementById("edit-project-select")
+  const editSel = document.getElementById("edit-project-select");
   const list = document.getElementById("projects-tabs");
   const items = list.getElementsByClassName("project");
 
@@ -21,8 +21,17 @@ export function projectOptions() {
     const option = document.createElement("option");
     option.value = items[i].textContent;
     option.text = items[i].textContent;
-    select.appendChild(option);
-    editSel.appendChild(option);
+    
+    // check if option already exists in select element
+    if (!select.querySelector(`[value="${option.value}"]`)) {
+      select.appendChild(option);
+    }
+    
+    // create a new option element for the edit form
+    const editOption = option.cloneNode(true);
+    if (!editSel.querySelector(`[value="${editOption.value}"]`)) {
+      editSel.appendChild(editOption);
+    }
   }
 }
 
@@ -77,7 +86,3 @@ export function tabSwitch() {
     }
   });
 }
-
-
-
-

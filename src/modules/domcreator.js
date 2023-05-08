@@ -126,8 +126,6 @@ export function editTask(id) {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const taskIndex = tasks.findIndex((task) => task.id === id);
   const task = tasks[taskIndex];
-  const projectInput = editForm.elements["edit-project-select"];
-  projectInput.value = task.project;
 
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -139,6 +137,6 @@ export function editTask(id) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
     editForm.style.display = "none";
     renderTasks();
-    editForm.dataset.taskId = null;
+    editForm.dataset.id = null;
   });
 }
