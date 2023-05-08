@@ -57,8 +57,9 @@ export function createTaskElement(
   editBtn.textContent = "O";
   editBtn.dataset.taskId = id;
 
-  editBtn.addEventListener("click", () => {
+  editBtn.addEventListener("click", (event) => {
     document.getElementById("edit-form").style.display = "block";
+    taskTest();
   });
   taskElement.appendChild(editBtn);
 
@@ -119,7 +120,7 @@ export function createProjectElement(name, id) {
   mainContainer.appendChild(projectContainer);
 }
 
-export function editTask(id) {
+/* export function editTask(id) {
   const editForm = document.getElementById("edit-form");
   editForm.dataset.taskId = id;
 
@@ -139,4 +140,14 @@ export function editTask(id) {
     renderTasks();
     editForm.dataset.id = null;
   });
+}
+ */
+
+export function taskTest() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const id = parseInt(event.target.dataset.taskId, 10);
+
+  const taskIndex = tasks.findIndex((task) => task.id === id);
+  const task = tasks[taskIndex];
+  console.log(task);
 }
