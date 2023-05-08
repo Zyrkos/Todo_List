@@ -18,8 +18,6 @@ export function createTaskElement(
     <p class="task-element">Priority: ${priority}</p>
     <p>Project: ${project}</p>
   `;
-  
-  
 
   const rmvTaskBtn = document.createElement("button");
   rmvTaskBtn.classList.add("rmv-task-btn");
@@ -57,9 +55,11 @@ export function createTaskElement(
   const editBtn = document.createElement("button");
   editBtn.classList.add("edit-task-btn");
   editBtn.textContent = "O";
+  editBtn.dataset.taskId = id;
+
   editBtn.addEventListener("click", () => {
-    
-  })
+    document.getElementById("edit-form").style.display = "block";
+  });
   taskElement.appendChild(editBtn);
 
   localStorage.setItem("projects", JSON.stringify(projects));
@@ -117,4 +117,28 @@ export function createProjectElement(name, id) {
   headerSpan.appendChild(rmvBtn);
   projectContainer.appendChild(headerSpan);
   mainContainer.appendChild(projectContainer);
+}
+
+export function editTask(id) {
+  const editForm = document.getElementById("edit-form");
+  editForm.dataset.taskId = id;
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const taskIndex = tasks.findIndex((task) => task.id === id);
+  const task = tasks[taskIndex];
+  const projectInput = editForm.elements["edit-project-select"];
+  projectInput.value = task.project;
+
+  editForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    tasks[taskIndex].title = editForm.elements["edit-title"].value;
+    tasks[taskIndex].description = editForm.elements["edit-description"].value;
+    tasks[taskIndex].dueDate = editForm.elements["edit-taskDueDate"].value;
+    tasks[taskIndex].priority = editForm.elements["edit-task-priority"].value;
+    tasks[taskIndex].project = projectInput.value;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    editForm.style.display = "none";
+    renderTasks();
+    editForm.dataset.taskId = null;
+  });
 }
