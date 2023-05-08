@@ -59,7 +59,7 @@ export function createTaskElement(
 
   editBtn.addEventListener("click", (event) => {
     document.getElementById("edit-form").style.display = "block";
-    taskTest();
+    editTask();
   });
   taskElement.appendChild(editBtn);
 
@@ -143,11 +143,29 @@ export function createProjectElement(name, id) {
 }
  */
 
-export function taskTest() {
+export function editTask() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const id = parseInt(event.target.dataset.taskId, 10);
+  const editForm = document.getElementById("edit-form");
+  const titleEdit = document.getElementById("edit-title");
+  const descriptionEdit = document.getElementById("edit-description");
+  const dueDateEdit = document.getElementById("edit-taskDueDate");
+  const priorityEdit = document.getElementById("edit-task-priority");
+  const projectEdit = document.getElementById("edit-project-select");
 
   const taskIndex = tasks.findIndex((task) => task.id === id);
   const task = tasks[taskIndex];
   console.log(task);
+  editForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    tasks[taskIndex].title = titleEdit.value;
+    tasks[taskIndex].description = descriptionEdit.value;
+    tasks[taskIndex].dueDate = dueDateEdit.value;
+    tasks[taskIndex].priority = priorityEdit.value;
+    tasks[taskIndex].project = projectEdit.value;
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    editForm.style.display = "none";
+    editForm.dataset.id = null;
+  });
 }
