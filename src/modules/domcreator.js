@@ -57,6 +57,9 @@ export function createTaskElement(
   const editBtn = document.createElement("button");
   editBtn.classList.add("edit-task-btn");
   editBtn.textContent = "O";
+  editBtn.addEventListener("click", () => {
+    
+  })
   taskElement.appendChild(editBtn);
 
   localStorage.setItem("projects", JSON.stringify(projects));
