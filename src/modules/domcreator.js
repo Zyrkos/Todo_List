@@ -122,6 +122,7 @@ export function createProjectElement(name, id) {
 
 export function editTask() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const projects = JSON.parse(localStorage.getItem("projects")) || [];
   const id = parseInt(event.target.dataset.taskId, 10);
   const editForm = document.getElementById("edit-form");
   const titleEdit = document.getElementById("edit-title");
@@ -133,7 +134,10 @@ export function editTask() {
   const taskIndex = tasks.findIndex((task) => task.id === id);
   const task = tasks[taskIndex];
 
-  // Populate the form fields with the task data
+  const oldProject = projects.find((project) => project.name === task.project);
+
+  oldProject.tasks = oldProject.tasks.filter((t) => t.id !== task.id);
+
   titleEdit.value = task.title;
   descriptionEdit.value = task.description;
   dueDateEdit.value = task.dueDate;
@@ -142,13 +146,22 @@ export function editTask() {
 
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
     tasks[taskIndex].title = titleEdit.value;
     tasks[taskIndex].description = descriptionEdit.value;
     tasks[taskIndex].dueDate = dueDateEdit.value;
     tasks[taskIndex].priority = priorityEdit.value;
+
+    const newProject = projects.find(
+      (project) => project.name === projectEdit.value
+    );
+
+    newProject.tasks.push(task);
+
     tasks[taskIndex].project = projectEdit.value;
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("projects", JSON.stringify(projects));
 
     editForm.style.display = "none";
     editForm.dataset.id = null;
@@ -157,12 +170,19 @@ export function editTask() {
   });
 }
 
-
 function updateUi(id, task) {
   const taskElement = document.querySelector(`[data-task-id="${id}"]`);
   taskElement.querySelector(".title").textContent = task.title;
-  taskElement.querySelector(".description").textContent = `Description: ${task.description}`;
-  taskElement.querySelector(".dueDate").textContent = `Due Date: ${task.dueDate}`;
-  taskElement.querySelector(".priority").textContent = `Priority: ${task.priority}`;
-  taskElement.querySelector(".task-element-project").textContent = `Project: ${task.project}`;
+  taskElement.querySelector(
+    ".description"
+  ).textContent = `Description: ${task.description}`;
+  taskElement.querySelector(
+    ".dueDate"
+  ).textContent = `Due Date: ${task.dueDate}`;
+  taskElement.querySelector(
+    ".priority"
+  ).textContent = `Priority: ${task.priority}`;
+  taskElement.querySelector(
+    ".task-element-project"
+  ).textContent = `Project: ${task.project}`;
 }

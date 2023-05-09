@@ -89,10 +89,7 @@ export default class Storage {
     }
   }
 
- /*  static editTask() {
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
-    const form 
-  } */
+
 }
 
 window.addEventListener("load", () => {
