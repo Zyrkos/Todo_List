@@ -120,29 +120,6 @@ export function createProjectElement(name, id) {
   mainContainer.appendChild(projectContainer);
 }
 
-/* export function editTask(id) {
-  const editForm = document.getElementById("edit-form");
-  editForm.dataset.taskId = id;
-
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  const taskIndex = tasks.findIndex((task) => task.id === id);
-  const task = tasks[taskIndex];
-
-  editForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    tasks[taskIndex].title = editForm.elements["edit-title"].value;
-    tasks[taskIndex].description = editForm.elements["edit-description"].value;
-    tasks[taskIndex].dueDate = editForm.elements["edit-taskDueDate"].value;
-    tasks[taskIndex].priority = editForm.elements["edit-task-priority"].value;
-    tasks[taskIndex].project = projectInput.value;
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    editForm.style.display = "none";
-    renderTasks();
-    editForm.dataset.id = null;
-  });
-}
- */
-
 export function editTask() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const id = parseInt(event.target.dataset.taskId, 10);
@@ -155,7 +132,14 @@ export function editTask() {
 
   const taskIndex = tasks.findIndex((task) => task.id === id);
   const task = tasks[taskIndex];
-  console.log(task);
+
+  // Populate the form fields with the task data
+  titleEdit.value = task.title;
+  descriptionEdit.value = task.description;
+  dueDateEdit.value = task.dueDate;
+  priorityEdit.value = task.priority;
+  projectEdit.value = task.project;
+
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
     tasks[taskIndex].title = titleEdit.value;
