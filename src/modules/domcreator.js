@@ -13,10 +13,10 @@ export function createTaskElement(
   taskElement.setAttribute("data-task-id", id); // Set the id as a data attribute
   taskElement.innerHTML = `
     <h2 class="title">${title}</h2>
-    <p class="task-element">Description: ${description}</p>
-    <p class="task-element">Due Date: ${dueDate}</p>
-    <p class="task-element">Priority: ${priority}</p>
-    <p>Project: ${project}</p>
+    <p class="description">Description: ${description}</p>
+    <p class="dueDate">Due Date: ${dueDate}</p>
+    <p class="priority">Priority: ${priority}</p>
+    <p class="task-element-project">Project: ${project}</p>
   `;
 
   const rmvTaskBtn = document.createElement("button");
@@ -149,7 +149,20 @@ export function editTask() {
     tasks[taskIndex].project = projectEdit.value;
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+
     editForm.style.display = "none";
     editForm.dataset.id = null;
+
+    updateUi(id, tasks[taskIndex]);
   });
+}
+
+
+function updateUi(id, task) {
+  const taskElement = document.querySelector(`[data-task-id="${id}"]`);
+  taskElement.querySelector(".title").textContent = task.title;
+  taskElement.querySelector(".description").textContent = `Description: ${task.description}`;
+  taskElement.querySelector(".dueDate").textContent = `Due Date: ${task.dueDate}`;
+  taskElement.querySelector(".priority").textContent = `Priority: ${task.priority}`;
+  taskElement.querySelector(".task-element-project").textContent = `Project: ${task.project}`;
 }
