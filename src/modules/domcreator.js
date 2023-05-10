@@ -105,6 +105,12 @@ export function createProjectElement(name, id) {
     projects = projects.filter((project) => project.id !== id);
     localStorage.setItem("projects", JSON.stringify(projects));
 
+/*     const name = projectContainer.getAttribute("data-name");
+ */
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks = tasks.filter((task) => task.project !== name);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
     // Remove project tab from UI
     const projectElement = document.getElementById(`project-${id}`);
     projectElement.remove();

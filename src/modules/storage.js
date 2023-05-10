@@ -43,8 +43,6 @@ export default class Storage {
     }
   }
 
-  /* static removeProject() {} */
-
   static saveNewTask(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
@@ -73,8 +71,8 @@ export default class Storage {
           project,
           id
         );
-        defaultContainer.appendChild(taskElement);
-
+/*         defaultContainer.appendChild(taskElement);
+ */
         if (existingProject) {
           existingProject.tasks.push({
             title,
@@ -88,8 +86,6 @@ export default class Storage {
       }
     }
   }
-
-
 }
 
 window.addEventListener("load", () => {
