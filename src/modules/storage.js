@@ -63,16 +63,16 @@ export default class Storage {
           continue;
         }
 
-        const taskElement = createTaskElement(
+        /*   const taskElement = createTaskElement(
           title,
           description,
           dueDate,
           priority,
           project,
           id
-        );
-/*         defaultContainer.appendChild(taskElement);
- */
+        ); */
+        /*         defaultContainer.appendChild(taskElement);
+         */
         if (existingProject) {
           existingProject.tasks.push({
             title,
