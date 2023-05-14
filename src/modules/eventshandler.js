@@ -1,21 +1,23 @@
 export function collapsibleTabs() {
-  const collapsible = document.getElementById("collapsible");
-  const content = document.getElementById("collap-content");
+  const collapsibles = document.querySelectorAll(".collapsible");
 
-  collapsible.addEventListener("click", (event) => {
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-    event.stopPropagation();
-  });
-  
-  content.addEventListener("click", (event) => {
-    event.stopPropagation();
+  collapsibles.forEach((collapsible) => {
+    collapsible.addEventListener("click", (event) => {
+      const content = collapsible.querySelector(".collap-content");
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+      event.stopPropagation();
+    });
+
+    const content = collapsible.querySelector(".collap-content");
+    content.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
   });
 }
-
 export function projectOptions() {
   const select = document.getElementById("project-select");
   const editSel = document.getElementById("edit-project-select");
