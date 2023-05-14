@@ -2,12 +2,17 @@ export function collapsibleTabs() {
   const collapsible = document.getElementById("collapsible");
   const content = document.getElementById("collap-content");
 
-  collapsible.addEventListener("click", () => {
+  collapsible.addEventListener("click", (event) => {
     if (content.style.display === "block") {
       content.style.display = "none";
     } else {
       content.style.display = "block";
     }
+    event.stopPropagation();
+  });
+  
+  content.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 }
 
