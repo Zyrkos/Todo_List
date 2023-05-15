@@ -64,6 +64,11 @@ export function closeTheForm() {
     document.getElementById("project-popup-form").style.display = "none";
   });
 
+  const closeEditProjectForm = document.getElementById("edit-form-close")
+  closeEditProjectForm.addEventListener("click", () => {
+    document.getElementById("edit-form").style.display = "none";
+  });
+
   window.onclick = function (event) {
     if (
       event.target.className === "project-popup-form" ||
