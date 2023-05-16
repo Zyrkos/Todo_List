@@ -168,6 +168,7 @@ export function editTask() {
     editForm.dataset.id = null;
 
     updateUi(id, tasks[taskIndex]);
+    location.reload();
   });
 }
 

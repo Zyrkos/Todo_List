@@ -63,23 +63,54 @@ li {
   content: "X";
 }
 
-/* .main-container {
+ .main-container {
+
+  padding: 2rem;
 
 }
-.rmv-task-btn {
-} */
+
 /*-----LEFT NAV --------*/
 
 .left-side-nav {
-  background-color: rgb(213, 210, 210);
+  background-color: #f7f7f7;
   height: calc(100vh - 50px);
   padding: 2rem;
   gap: 2rem;
 }
 
-.main-nav-ul > li {
-  margin-top: 1rem;
+.projects-ul-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+
 }
+
+li:hover {
+  background-color: rgba(152, 143, 143, 0.556);
+}
+
+.collapsible {
+  cursor: pointer;
+}
+
+.project {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.add-project-btn {
+  margin-top: 2rem;
+  margin-left: 20px;
+}
+
+.collapsible::before {
+  content: "+";
+  cursor: pointer;
+}
+
+/*  -------LEFT NAV END------------ */
+
+
+/* FORM */
 
 .task-form {
   display: flex;
@@ -132,23 +163,10 @@ input#project-name {
   padding: 5px;
 }
 
-.collapsible {
-  cursor: pointer;
-}
+/* FORM END */
 
-.project {
-  margin-top: 2rem;
-  margin-left: 10px;
-}
 
-.add-project-btn {
-  margin-top: 2rem;
-  margin-left: 20px;
-}
+/* PROJECTS CONTAINER */
 
-.collapsible::before {
-  content: "+";
-  cursor: pointer;
-}
 
-/*  -------LEFT NAV END------------ */
+
