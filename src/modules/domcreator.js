@@ -12,17 +12,24 @@ export function createTaskElement(
   taskElement.classList.add("task");
   taskElement.setAttribute("data-task-id", id); // Set the id as a data attribute
   taskElement.innerHTML = `
+  <div class="task-info">
     <p class="title">${title}</p>
-    <p class="description">Description: ${description}</p>
     <p class="dueDate">Due Date: ${dueDate}</p>
     <p class="priority">Priority: ${priority}</p>
+  </div>  
+  <div class="task-collap-div>
     <p class="task-element-project">Project: ${project}</p>
+    <p class="description">Description: ${description}</p>
+  </div>
   `;
+
+  const taskBtnsDiv = document.createElement("div");
+  taskBtnsDiv.classList.add("task-btns-div")
 
   const rmvTaskBtn = document.createElement("button");
   rmvTaskBtn.classList.add("rmv-task-btn");
   rmvTaskBtn.textContent = "X";
-  taskElement.appendChild(rmvTaskBtn);
+  taskBtnsDiv.appendChild(rmvTaskBtn);
   rmvTaskBtn.addEventListener("click", () => {
     taskElement.remove();
 
@@ -61,7 +68,9 @@ export function createTaskElement(
     document.getElementById("edit-form").style.display = "block";
     editTask();
   });
-  taskElement.appendChild(editBtn);
+  taskBtnsDiv.appendChild(editBtn);
+
+  taskElement.appendChild(taskBtnsDiv)
 
   localStorage.setItem("projects", JSON.stringify(projects));
 
