@@ -12,7 +12,7 @@ export function createTaskElement(
   taskElement.classList.add("task");
   taskElement.setAttribute("data-task-id", id); // Set the id as a data attribute
   taskElement.innerHTML = `
-    <h2 class="title">${title}</h2>
+    <p class="title">${title}</p>
     <p class="description">Description: ${description}</p>
     <p class="dueDate">Due Date: ${dueDate}</p>
     <p class="priority">Priority: ${priority}</p>
