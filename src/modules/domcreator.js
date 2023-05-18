@@ -14,14 +14,14 @@ export function createTaskElement(
   taskElement.innerHTML = `
   <div class="task-info">
     <p class="title">${title}</p>
-    <p class="dueDate">Due Date: ${dueDate}</p>
-    <p class="priority">Priority: ${priority}</p>
   </div>  
-  <div class="task-collap-div>
+  <div class="task-collap-div">
+  <p class="dueDate">Due Date: ${dueDate}</p>
+    <p class="priority">Priority: ${priority}</p>
     <p class="task-element-project">Project: ${project}</p>
     <p class="description">Description: ${description}</p>
   </div>
-  `;
+`;
 
   const taskBtnsDiv = document.createElement("div");
   taskBtnsDiv.classList.add("task-btns-div")
