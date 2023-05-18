@@ -11,25 +11,29 @@ export function createTaskElement(
   const taskElement = document.createElement("div");
   taskElement.classList.add("task");
   taskElement.setAttribute("data-task-id", id); // Set the id as a data attribute
-  taskElement.innerHTML = `
-  <div class="task-info">
-    <p class="title">${title}</p>
-  </div>  
-  <div class="task-collap-div">
+
+  const taskHeaderDiv = document.createElement("div");
+  taskHeaderDiv.classList.add("task-header-div");
+
+  const taskTitle = document.createElement("p");
+  taskTitle.classList.add("title");
+  taskTitle.textContent = `${title}`;
+
+  const taskCollapDiv = document.createElement("div");
+  taskCollapDiv.classList.add("task-collap-div");
+  taskCollapDiv.innerHTML = `
   <p class="dueDate">Due Date: ${dueDate}</p>
     <p class="priority">Priority: ${priority}</p>
     <p class="task-element-project">Project: ${project}</p>
-    <p class="description">Description: ${description}</p>
-  </div>
-`;
+    <p class="description">Description: ${description}</p>`;
 
   const taskBtnsDiv = document.createElement("div");
-  taskBtnsDiv.classList.add("task-btns-div")
+  taskBtnsDiv.classList.add("task-btns-div");
 
   const rmvTaskBtn = document.createElement("button");
   rmvTaskBtn.classList.add("rmv-task-btn");
   rmvTaskBtn.textContent = "X";
-  taskBtnsDiv.appendChild(rmvTaskBtn);
+
   rmvTaskBtn.addEventListener("click", () => {
     taskElement.remove();
 
@@ -68,9 +72,14 @@ export function createTaskElement(
     document.getElementById("edit-form").style.display = "block";
     editTask();
   });
-  taskBtnsDiv.appendChild(editBtn);
 
-  taskElement.appendChild(taskBtnsDiv)
+  taskBtnsDiv.appendChild(editBtn);
+  taskBtnsDiv.appendChild(rmvTaskBtn);
+  taskHeaderDiv.appendChild(taskTitle);
+  taskHeaderDiv.appendChild(taskBtnsDiv);
+
+  taskElement.appendChild(taskHeaderDiv);
+  taskElement.appendChild(taskCollapDiv);
 
   localStorage.setItem("projects", JSON.stringify(projects));
 
