@@ -22,10 +22,11 @@ export function createTaskElement(
   const taskCollapDiv = document.createElement("div");
   taskCollapDiv.classList.add("task-collap-div");
   taskCollapDiv.innerHTML = `
-  <p class="dueDate">Due Date: ${dueDate}</p>
+    <p class="description">Description: ${description}</p>
+    <p class="dueDate">Due Date: ${dueDate}</p>
     <p class="priority">Priority: ${priority}</p>
     <p class="task-element-project">Project: ${project}</p>
-    <p class="description">Description: ${description}</p>`;
+    `;
 
   const taskBtnsDiv = document.createElement("div");
   taskBtnsDiv.classList.add("task-btns-div");
