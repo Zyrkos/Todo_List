@@ -177,22 +177,28 @@ input#project-name {
   margin-bottom: 2rem;
 }
 
-
 .task-header-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.task-btns-div {
+  display: flex;
+  gap: 5px;
+}
+
 .title {
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
+  
 }
-
 
 .task-collap-div {
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* display: block; */
 }

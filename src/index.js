@@ -5,6 +5,7 @@ import {
   openTheForm,
   closeTheForm,
   collapsibleTabs,
+  
 } from "./modules/eventshandler";
 
 
@@ -14,3 +15,4 @@ openTheForm();
 closeTheForm();
 newProject();
 tabSwitch();
+

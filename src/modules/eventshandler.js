@@ -28,12 +28,12 @@ export function projectOptions() {
     const option = document.createElement("option");
     option.value = items[i].textContent;
     option.text = items[i].textContent;
-    
+
     // check if option already exists in select element
     if (!select.querySelector(`[value="${option.value}"]`)) {
       select.appendChild(option);
     }
-    
+
     // create a new option element for the edit form
     const editOption = option.cloneNode(true);
     if (!editSel.querySelector(`[value="${editOption.value}"]`)) {
@@ -64,7 +64,7 @@ export function closeTheForm() {
     document.getElementById("project-popup-form").style.display = "none";
   });
 
-  const closeEditProjectForm = document.getElementById("edit-form-close")
+  const closeEditProjectForm = document.getElementById("edit-form-close");
   closeEditProjectForm.addEventListener("click", () => {
     document.getElementById("edit-form").style.display = "none";
   });
@@ -96,5 +96,15 @@ export function tabSwitch() {
       projectDiv.style.display = "block";
       currentTab = projectDiv;
     }
+  });
+}
+
+export function displayTaskContent() {
+  const taskTitles = document.querySelectorAll(".title");
+
+  taskTitles.forEach((taskTitle) => {
+    taskTitle.addEventListener("click", () => {
+      console.log("hello");
+    });
   });
 }

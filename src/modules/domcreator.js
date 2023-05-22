@@ -1,3 +1,5 @@
+import { displayTaskContent } from "./eventshandler"; 
+
 export function createTaskElement(
   title,
   description,
@@ -34,6 +36,8 @@ export function createTaskElement(
   const rmvTaskBtn = document.createElement("button");
   rmvTaskBtn.classList.add("rmv-task-btn");
   rmvTaskBtn.textContent = "X";
+
+  
 
   rmvTaskBtn.addEventListener("click", () => {
     taskElement.remove();
@@ -83,7 +87,7 @@ export function createTaskElement(
   taskElement.appendChild(taskCollapDiv);
 
   localStorage.setItem("projects", JSON.stringify(projects));
-
+  displayTaskContent();
   return taskElement;
 }
 
@@ -138,6 +142,7 @@ export function createProjectElement(name, id) {
   headerSpan.appendChild(rmvBtn);
   projectContainer.appendChild(headerSpan);
   mainContainer.appendChild(projectContainer);
+
 }
 
 export function editTask() {
